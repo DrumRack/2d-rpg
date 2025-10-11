@@ -1,0 +1,25 @@
+{
+  "name": "2d-rpg",
+  "version": "1.0.0",
+  "description": "Game",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DrumRack/2d-rpg.git"
+  },
+  "keywords": [
+    "game"
+  ],
+  "author": "Kolesnikov Mikhail <redrumrack@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DrumRack/2d-rpg/issues"
+  },
+  "homepage": "https://github.com/DrumRack/2d-rpg#readme",
+  "devDependencies": {
+    "webpack-cli": "^6.0.1"
+  }
+}
