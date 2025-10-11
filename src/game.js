@@ -1,14 +1,19 @@
 import {Screen} from './screen'
 import {Menu} from './scenes/menu'
+import {Level} from './scenes/level'
 
 export class Game {
     constructor () {
         this.screen = new Screen(640, 640)
-        this.scene = new Menu(this)
+        this.scenes = {
+            menu: new Menu(this),
+            level: new Level(this),
+        }
+        this.currentScene = this.scenes.menu
     }
 
     frame() {
-        this.scene.render()
+        this.currentScene.render()
         requestAnimationFrame(this.frame.bind(this))
     }
 
