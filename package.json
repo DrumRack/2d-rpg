@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/DrumRack/2d-rpg#readme",
   "devDependencies": {
+    "copy-webpack-plugin": "^13.0.1",
     "webpack-cli": "^6.0.1"
   }
 }
