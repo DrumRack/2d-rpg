@@ -1,5 +1,5 @@
 export class Control {
-    constructor () {
+    constructor() {
         this.up = false
         this.down = false
         this.left = false

@@ -4,14 +4,14 @@ import {Menu} from './scenes/menu'
 import {Level} from './scenes/level'
 
 export class Game {
-    constructor () {
+    constructor() {
         this.screen = new Screen(640, 640)
         this.control = new Control()
         this.scenes = {
             menu: new Menu(this),
-            level: new Level(this),
+            level: new Level(this)
         }
-        this.currentScene = this.scenes.menu
+        this.currentScene = this.scenes.level
     }
 
     frame() {

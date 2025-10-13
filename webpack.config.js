@@ -8,8 +8,8 @@ module.exports = {
                     from: 'src/index.html'
                 },
                 {
-                    from: 'src/resources',
-                    to: 'resources'
+                    from: 'resources',
+                    to: 'images'
                 }
             ]
         })

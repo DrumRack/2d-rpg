@@ -1,11 +1,11 @@
 export class Screen {
-    constructor (width, height) {
+    constructor(width, height) {
         this.canvas = document.createElement('canvas')
         this.context = this.canvas.getContext('2d')
         this.canvas.width = width
         this.canvas.height = height
         this.tileset = new Image()
-        this.tileset.src = 'resources/tileset.png'
+        this.tileset.src = 'images/tileset.png'
 
         document.body.prepend(this.canvas)
     }
@@ -21,7 +21,7 @@ export class Screen {
         this.context.fillText(text, x, y)
     }
 
-    drawImage() {
-        this.context.drawImage(this.tileset, 0, 0, 64, 64, 0, 0, 64, 64)
+    drawImage(x, y) {
+        this.context.drawImage(this.tileset, 0, 0, 64, 64, x, y, 64, 64)
     }
 }

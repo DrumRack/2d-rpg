@@ -1,5 +1,5 @@
 export class Menu {
-    constructor (game) {
+    constructor(game) {
         this.game = game
     }
 
