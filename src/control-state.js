@@ -1,4 +1,4 @@
-export class Control {
+export class ControlState {
     constructor() {
         this.up = false
         this.down = false

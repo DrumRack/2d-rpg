@@ -1,6 +1,6 @@
 import {Sprite} from '../sprite'
 
-export class Level {
+export class GameLevel {
     constructor(game) {
         this.game = game
         this.grass = new Sprite(this.game.screen.tileset, 0, 0)

@@ -1,15 +1,15 @@
 import {Screen} from './screen'
-import {Control} from './control'
+import {ControlState} from './control-state'
 import {Menu} from './scenes/menu'
-import {Level} from './scenes/level'
+import {GameLevel} from './scenes/game-level'
 
 export class Game {
     constructor() {
         this.screen = new Screen(640, 640)
-        this.control = new Control()
+        this.control = new ControlState()
         this.scenes = {
             menu: new Menu(this),
-            level: new Level(this)
+            level: new GameLevel(this)
         }
         this.currentScene = this.scenes.level
     }

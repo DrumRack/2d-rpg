@@ -5,7 +5,7 @@ export class Screen {
         this.canvas.width = width
         this.canvas.height = height
         this.tileset = new Image()
-        this.tileset.src = 'images/tileset.png'
+        this.tileset.src = 'images/tiles.png'
 
         document.body.prepend(this.canvas)
     }

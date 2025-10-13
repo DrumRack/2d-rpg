@@ -2,9 +2,9 @@
   "name": "2d-rpg",
   "version": "1.0.0",
   "description": "Game",
-  "main": "index.js",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "webpack --mode development"
   },
   "repository": {
     "type": "git",
