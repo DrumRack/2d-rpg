@@ -21,7 +21,7 @@ export class Screen {
         this.context.fillText(text, x, y)
     }
 
-    drawImage(x, y) {
-        this.context.drawImage(this.tileset, 0, 0, 64, 64, x, y, 64, 64)
+    drawSprite(sprite) {
+        this.context.drawImage(sprite.image, sprite.sourceX, sprite.sourceY, sprite.width, sprite.height, sprite.x, sprite.y, sprite.width, sprite.height)
     }
 }
