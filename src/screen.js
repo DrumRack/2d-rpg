@@ -4,8 +4,8 @@ export class Screen {
         this.context = this.canvas.getContext('2d')
         this.canvas.width = width
         this.canvas.height = height
-        this.tileset = new Image()
-        this.tileset.src = 'images/tiles.png'
+        this.tiles = new Image()
+        this.tiles.src = 'images/tiles.png'
 
         document.body.prepend(this.canvas)
     }

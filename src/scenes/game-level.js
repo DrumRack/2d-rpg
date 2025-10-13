@@ -1,13 +1,14 @@
-import {Sprite} from '../sprite'
+import {SpriteSheet} from '../sprite-sheet'
 
 export class GameLevel {
     constructor(game) {
         this.game = game
-        this.grass = new Sprite(this.game.screen.tileset, 0, 0)
-        this.grass.setXY(50, 80)
+        this.tiles = new SpriteSheet(this.game.screen.tiles, 640, 640)
+        this.grass = this.tiles.getSprite(1)
     }
 
     render() {
+        this.grass.setXY(0, 0)
         this.game.screen.drawSprite(this.grass)
     }
 }

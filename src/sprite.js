@@ -1,5 +1,5 @@
 export class Sprite {
-    constructor(image, sourceX, sourceY, width = 64, height = 64) {
+    constructor(image, sourceX, sourceY, width, height) {
         this.image = image
         this.sourceX = sourceX
         this.sourceY = sourceY
