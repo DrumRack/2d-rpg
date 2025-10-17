@@ -9,7 +9,7 @@ module.exports = {
                     from: 'src/index.html'
                 },
                 {
-                    from: 'resources',
+                    from: 'src/game/assets',
                     to: 'images'
                 }
             ]
