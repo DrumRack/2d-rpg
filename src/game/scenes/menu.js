@@ -7,6 +7,7 @@ export class Menu {
     render() {
         if (this.game.control.enter) {
             this.game.currentScene = this.game.scenes[this.nextScene]
+            this.game.currentScene.init()
         }
         this.game.screen.fill('black')
         this.game.screen.print('2D-RPG', 280, 200)

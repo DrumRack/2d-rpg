@@ -9,10 +9,15 @@ export class SpriteSheet {
         this.spriteHeight = spriteHeight
     }
 
+    getSourceX(index) {
+        return (--index * this.spriteWidth) % this.imageWidth
+    }
+
+    getSourceY(index) {
+        return Math.trunc((--index * this.spriteWidth) / this.imageWidth) * this.spriteHeight
+    }
+
     getSprite(index) {
-        const sourceX = (--index * this.spriteWidth) % this.imageWidth
-        const sourceY = Math.trunc((--index * this.spriteWidth) / this.imageWidth) * this.spriteHeight
-        
-        return new Sprite(this.image, sourceX, sourceY, this.spriteWidth, this.spriteHeight)
+        return new Sprite(this.image, getSourceX(index), getSourceY(index), this.spriteWidth, this.spriteHeight)
     }
 }
