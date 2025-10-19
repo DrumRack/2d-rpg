@@ -8,6 +8,7 @@ export class GameLevel {
     }
 
     render() {
+        this.game.screen.fill('black')
         this.grass.setXY(0, 0)
         this.game.screen.drawSprite(this.grass)
     }
