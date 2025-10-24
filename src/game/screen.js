@@ -1,3 +1,4 @@
+import {ImageLoader} from './image-loader'
 import {Sprite} from './sprite'
 
 export class Screen {
@@ -6,18 +7,18 @@ export class Screen {
         this.context = this.canvas.getContext('2d')
         this.canvas.width = width
         this.canvas.height = height
-
-        this.tiles = new Image()
-        this.tiles.src = 'images/tiles.png'
-        this.isTilesLoaded = false
-        this.tiles.onload = () => this.isTilesLoaded = true
-
-        this.title = new Image()
-        this.title.src = 'images/title.png'
-        this.isTitleLoaded = false
-        this.title.onload = () => this.isTitleLoaded = true
+        this.images = {}
+        this.isImagesLoaded = false
 
         document.body.prepend(this.canvas)
+    }
+
+    loadImages(imageFiles) {
+        const loader = new ImageLoader(imageFiles)
+        loader.load().then(() => {
+            this.images = loader.images
+            this.isImagesLoaded = true
+        })
     }
 
     fill(color) {
@@ -31,11 +32,11 @@ export class Screen {
         this.context.fillText(text, x, y)
     }
 
-    drawImage(image, x, y) {
-        this.context.drawImage(image, x, y)
+    drawImage(imageName, x, y) {
+        this.context.drawImage(this.images[imageName], x, y)
     }
 
-    createMap(mapData, tileset) {
+    createMap(mapName, mapData, tileset) {
         const mapImage = document.createElement('canvas')
         const mapContext = mapImage.getContext('2d')
         mapImage.width = mapData.width * mapData.tileWidth
@@ -43,7 +44,7 @@ export class Screen {
         mapData.layers.forEach(layer => {
             let col = 0, row = 0
             layer.data.forEach(index => {
-                mapContext.drawImage(tileset.image, tileset.getSourceX(index), tileset.getSourceY(index), mapData.tileWidth, mapData.tileHeight, col * mapData.tileWidth, row * mapData.tileHeight, mapData.tileWidth, mapData.tileHeight)
+                mapContext.drawImage(this.images[tileset.imageName], tileset.getSourceX(index), tileset.getSourceY(index), mapData.tileWidth, mapData.tileHeight, col * mapData.tileWidth, row * mapData.tileHeight, mapData.tileWidth, mapData.tileHeight)
                 col++
                 if (col === mapData.width) {
                     col = 0
@@ -51,11 +52,12 @@ export class Screen {
                 }
             })
         })
+        this.images[mapName] = mapImage
 
-        return new Sprite(mapImage, 0, 0, mapImage.width, mapImage.height)
+        return new Sprite(mapName, 0, 0, mapImage.width, mapImage.height)
     }
 
     drawSprite(sprite) {
-        this.context.drawImage(sprite.image, sprite.sourceX, sprite.sourceY, sprite.width, sprite.height, sprite.x, sprite.y, sprite.width, sprite.height)
+        this.context.drawImage(this.images[sprite.imageName], sprite.sourceX, sprite.sourceY, sprite.width, sprite.height, sprite.x, sprite.y, sprite.width, sprite.height)
     }
 }

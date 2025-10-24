@@ -10,7 +10,7 @@ export class Menu {
             this.game.currentScene.init()
         }
         this.game.screen.fill('black')
-        this.game.screen.drawImage(this.game.screen.title, 20, 0)
+        this.game.screen.drawImage('title', 20, 0)
         this.game.screen.print('Нажмите пробел для начала игры', 120, 500)
     }
 }

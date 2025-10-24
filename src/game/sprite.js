@@ -1,6 +1,6 @@
 export class Sprite {
-    constructor(image, sourceX, sourceY, width, height) {
-        this.image = image
+    constructor(imageName, sourceX, sourceY, width, height) {
+        this.imageName = imageName
         this.sourceX = sourceX
         this.sourceY = sourceY
         this.width = width

@@ -7,6 +7,10 @@ import {GameLevel} from './scenes/game-level'
 export class Game {
     constructor() {
         this.screen = new Screen(640, 640)
+        this.screen.loadImages({
+            title: 'images/title.png',
+            tiles: 'images/tiles.png'
+        })
         this.control = new ControlState()
         this.scenes = {
             loading: new Loading(this),
