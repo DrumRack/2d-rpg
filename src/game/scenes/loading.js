@@ -5,7 +5,7 @@ export class Loading {
     }
 
     render() {
-        if (this.game.screen.isTilesLoaded) {
+        if (this.game.screen.isTilesLoaded && this.game.screen.isTitleLoaded) {
             this.game.currentScene = this.game.scenes[this.nextScene]
         }
         this.game.screen.fill('black')

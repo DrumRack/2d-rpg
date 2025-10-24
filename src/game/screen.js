@@ -12,6 +12,11 @@ export class Screen {
         this.isTilesLoaded = false
         this.tiles.onload = () => this.isTilesLoaded = true
 
+        this.title = new Image()
+        this.title.src = 'images/title.png'
+        this.isTitleLoaded = false
+        this.title.onload = () => this.isTitleLoaded = true
+
         document.body.prepend(this.canvas)
     }
 
@@ -24,6 +29,10 @@ export class Screen {
         this.context.fillStyle = 'white'
         this.context.font = '26px Segoe UI'
         this.context.fillText(text, x, y)
+    }
+
+    drawImage(image, x, y) {
+        this.context.drawImage(image, x, y)
     }
 
     createMap(mapData, tileset) {

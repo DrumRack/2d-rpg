@@ -18,6 +18,6 @@ export class SpriteSheet {
     }
 
     getSprite(index) {
-        return new Sprite(this.image, getSourceX(index), getSourceY(index), this.spriteWidth, this.spriteHeight)
+        return new Sprite(this.image, this.getSourceX(index), this.getSourceY(index), this.spriteWidth, this.spriteHeight)
     }
 }
