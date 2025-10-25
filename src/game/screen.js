@@ -7,8 +7,6 @@ export class Screen {
         this.context = this.canvas.getContext('2d')
         this.canvas.width = width
         this.canvas.height = height
-        this.images = {}
-        this.isImagesLoaded = false
 
         document.body.prepend(this.canvas)
     }
@@ -36,11 +34,16 @@ export class Screen {
         this.context.drawImage(this.images[imageName], x, y)
     }
 
-    createMap(mapName, mapData, tileset) {
+    drawSprite(sprite) {
+        this.context.drawImage(this.images[sprite.imageName], sprite.sourceX, sprite.sourceY, sprite.width, sprite.height, sprite.x, sprite.y, sprite.width, sprite.height)
+    }
+
+    createMap(name, mapData, tileset) {
         const mapImage = document.createElement('canvas')
         const mapContext = mapImage.getContext('2d')
         mapImage.width = mapData.width * mapData.tileWidth
         mapImage.height = mapData.height * mapData.tileHeight
+
         mapData.layers.forEach(layer => {
             let col = 0, row = 0
             layer.data.forEach(index => {
@@ -52,12 +55,8 @@ export class Screen {
                 }
             })
         })
-        this.images[mapName] = mapImage
+        this.images[name] = mapImage
 
-        return new Sprite(mapName, 0, 0, mapImage.width, mapImage.height)
-    }
-
-    drawSprite(sprite) {
-        this.context.drawImage(this.images[sprite.imageName], sprite.sourceX, sprite.sourceY, sprite.width, sprite.height, sprite.x, sprite.y, sprite.width, sprite.height)
+        return new Sprite(name, 0, 0, mapImage.width, mapImage.height)
     }
 }
