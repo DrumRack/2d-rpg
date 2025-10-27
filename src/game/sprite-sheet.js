@@ -1,4 +1,5 @@
 import {Sprite} from './sprite'
+import {Animation} from './animation'
 
 export class SpriteSheet {
     constructor(imageName, imageWidth, imageHeight, spriteWidth = 64, spriteHeight = 64) {
@@ -11,6 +12,10 @@ export class SpriteSheet {
 
     getSprite(index) {
         return new Sprite(this.imageName, this.getSourceX(index), this.getSourceY(index), this.spriteWidth, this.spriteHeight)
+    }
+
+    getAnimation(indexes, speed, repeat, autorun) {
+        return new Animation(this.imageName, indexes.map(index => ({sourceX: this.getSourceX(index), sourceY: this.getSourceY(index)})), speed, repeat, autorun, this.spriteWidth, this.spriteHeight)
     }
     
     getSourceX(index) {

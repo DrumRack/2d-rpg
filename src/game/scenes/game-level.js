@@ -5,6 +5,8 @@ export class GameLevel {
         this.game = game
         this.mapData = require('../maps/world.json')
         this.tiles = new SpriteSheet('tiles', 640, 640)
+        this.animation = this.tiles.getAnimation([1, 2, 3, 4], 700, true, true)
+        this.animation.setXY(20, 20)
     }
 
     init() {
@@ -12,8 +14,10 @@ export class GameLevel {
         this.map.setXY(0, 0)
     }
 
-    render() {
+    render(timestamp) {
+        this.animation.update(timestamp)
         this.game.screen.fill('black')
         this.game.screen.drawSprite(this.map)
+        this.game.screen.drawSprite(this.animation)
     }
 }

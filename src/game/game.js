@@ -20,8 +20,8 @@ export class Game {
         this.currentScene = this.scenes.loading
     }
 
-    frame() {
-        this.currentScene.render()
+    frame(timestamp) {
+        this.currentScene.render(timestamp)
         requestAnimationFrame(this.frame.bind(this))
     }
 
