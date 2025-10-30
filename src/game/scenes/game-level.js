@@ -1,12 +1,13 @@
 import {SpriteSheet} from '../sprite-sheet'
+import {CharacterSheet} from '../character-sheet'
 
 export class GameLevel {
     constructor(game) {
         this.game = game
         this.mapData = require('../maps/world.json')
         this.tiles = new SpriteSheet('tiles', 640, 640)
-        this.playerSprites = new SpriteSheet('player', 576, 256)
-        this.player = this.playerSprites.getAnimation([10, 11, 12, 13, 14, 15, 16, 17, 18], 200, true, true)
+        this.playerTiles = new CharacterSheet('player', 576, 256)
+        this.player = this.playerTiles.getAnimation('walk_left', 200, true, true)
         this.player.setXY(0, 0)
     }
 
