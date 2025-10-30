@@ -9,7 +9,8 @@ export class Game {
         this.screen = new Screen(640, 640)
         this.screen.loadImages({
             title: 'images/title.png',
-            tiles: 'images/tiles.png'
+            tiles: 'images/tiles.png',
+            player: 'images/player.png'
         })
         this.control = new ControlState()
         this.scenes = {
