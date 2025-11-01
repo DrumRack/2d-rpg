@@ -21,12 +21,12 @@ export class Game {
         this.currentScene = this.scenes.loading
     }
 
-    frame(timestamp) {
-        this.currentScene.render(timestamp)
-        requestAnimationFrame(this.frame.bind(this))
+    run() {
+        requestAnimationFrame(this.#frame.bind(this))
     }
 
-    run() {
-        requestAnimationFrame(this.frame.bind(this))
+    #frame(timestamp) {
+        this.currentScene.render(timestamp)
+        requestAnimationFrame(this.#frame.bind(this))
     }
 }
