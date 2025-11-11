@@ -1,13 +1,13 @@
 import {SpriteSheet} from '../sprite-sheet'
-import {CharacterSheet} from '../character-sheet'
+import {Player} from '../player'
 
 export class GameLevel {
     constructor(game) {
         this.game = game
         this.tiles = new SpriteSheet('tiles', 640, 640)
-        this.playerTiles = new CharacterSheet('player', 576, 256)
-        this.player = this.playerTiles.getAnimation('walk_left', 200, true, true)
-        this.player.setXY(0, 0)
+        this.player = new Player(this.game.control)
+        this.player.x = 100
+        this.player.y = 100
     }
 
     init() {
@@ -20,6 +20,6 @@ export class GameLevel {
         this.player.update(timestamp)
         this.game.screen.fill('black')
         this.game.screen.drawSprite(this.map)
-        this.game.screen.drawSprite(this.player)
+        this.game.screen.drawSprite(this.player.view)
     }
 }

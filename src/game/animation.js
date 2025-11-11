@@ -19,11 +19,12 @@ export class Animation extends Sprite {
         if (!this.lastTimestamp) this.lastTimestamp = timestamp
         if (timestamp - this.lastTimestamp > this.speed) {
             this.#nextFrame()
-            this.lastTimestamp += this.speed
+            this.lastTimestamp = timestamp
         }
     }
 
     start() {
+        if (this.running) return
         this.#setFrame(0)
         this.running = true
     }
